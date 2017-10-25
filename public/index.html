@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="./css/hudl.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<div id="overlay" class="overlay">
+		<div class="dialog">
+			<div class="title">Hello Hudl!<div class="x">X</div></div>
+			<div class="decorativeInitial">M</div>y experience as a Hudl user left me wishing I could use existing YouTube videos. To make use of a YouTube video, I had to find a service and rip the video, saving it to my hard drive. Then use the normal procedure to upload the video to Hudl. What a pain in the butt!<br><br>
+			This is a proof of concept to show that YouTube videos can indeed be added to a coach's library and marked up with highlights and educational points. Currently implemented features include a simple free-form pen tool and frame-by-frame step buttons. Simply click and draw a line at any time to make markups with the pen tool. The video will automatically pause when it reaches a markup point. I have started you off with some pointed markup at 7 seconds.<br><br>
+			There are a few tradeoffs when using YouTube as the video player, making the YouTube experience less polished overall. With more work, this platform could be nearly as clean as the current Silverlight editor. Having coaches upload videos to YouTube instead of Hudl's own servers would also provide some cost savings in hosting storage and delivery bandwidth costs.<br><br><br>
+			<footer>
+				<b>About the Video:</b> This is a beautiful example of an action that strains the rules of fencing and forces referees to make a call based on their own personal preferences. In foil fencing, only one fencer may be awarded a touch, but in this video we see the red light (for the fencer on the left) and the green light (for the fencer on the right) go off at the same time. This means that the point will be awarded to whomever had the "right of way" (basically a rule that gives the point to the stronger attack). Any one reff may say that the fencer on the left blocked the attack from the right (a parry) and then attacked and scored a point. Another reff may say that the attack from the right missed and that the blade contact was only incidental, not an intentional parry. Then the attacker from the right holds the blade in line (called point-in-line) and scores a touch when the left moves forward to attack.
+			</footer>
+		</div>
+	</div>
+	<img class="background" src="img/hudlDashboard.png" />
+	<div id="player"></div>
+	<canvas id="markupOverlay"></canvas>
+	<button id="playButton"></button>
+	<button id="stepRevButton"></button>
+	<button id="stepFwdButton"></button>
+	<!--
+	<button id="fastRevButton"></button>
+	<button id="fastFwdButton"></button>
+	-->
+	<script src="js/hudl.js"></script>
+</body>
+</html>

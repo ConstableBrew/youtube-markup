@@ -1,0 +1,136 @@
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Should Hudl hire Michael Brewer? This survey helps resolve that question.">
+<meta name="author" content="Michael Brewer">
+
+<title>Hiring Team Opinion Survey</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<style>
+#evader {
+	position: relative;
+	transition: top 150ms ease-out;
+}
+#evasionContainer {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#overlay {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+#overlay .mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.8;
+}
+#overlay .box {
+	width: 400px;
+	height: 250px;
+	color: black;
+	background-color: #bdb;
+	border-color: black;
+	border-width: 3px;
+	border-radius: 5px;
+	border-style: solid;
+	text-align: center;
+}
+.absolute-center {
+	margin: auto;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+</style>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head><body>
+	<div class="container">
+		<div class="header">
+			<h3 class="text-muted">Hudl Hiring Team Opinion Survey</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1>The Wait is Killing Me</h1>
+			<p class="lead">Anticipation has made me restless and the day is here for Hudl to give me a decision. I have created this simple survey to help the hiring team let me know if I'm hired or not. Just answer the question below to have the results tallied.</p>
+		</div>
+
+		<div class="row">
+		  	<div class="col-sm-12">
+		  		<h3>Should Hudl hire Michael Brewer?</h3>
+		  	</div>
+		</div>
+
+		<div class="row">
+			<div>
+				<div class="col-sm-1">&nbsp;</div>
+				<button id="yes" type="button" class="col-sm-1 btn btn-success">Yes</button>
+				<div class="col-sm-10">He is highly talented, he will be a fun guy to work with, and I hear he rides a pretty cool bike.</div>
+			</div>
+		</div>
+
+		<div class="row"><div class="col-sm-12">&nbsp;</div></div>
+
+		<div id="evasionContainer" class="row">
+			<div id="evader">
+				<div class="col-sm-1">&nbsp;</div>
+				<div class="btn btn-warning col-sm-1">No</div>
+				<div class="col-sm-10">His immense potential scares me, I prefer not to have enjoyable company while I work, and I am jealous of his cool bike.</div>
+			</div>
+		</div>
+
+	</div> <!-- /container -->
+
+	<div id="overlay">
+		<div class="mask"></div>
+		<div class="box absolute-center"><h2>Excellent choice!</h2></div>
+	</div>
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script>
+	function evasion(event){
+		const MIN_DISTANCE_FROM_MOUSE = 15;
+		var offset = event.clientY - (evasionContainer.offset().top + evasionContainer.innerHeight()/2); // Distance of the mouse form the container midline
+		offset += (offset<0?1:-1)*(evasionContainer.innerHeight()/2 + MIN_DISTANCE_FROM_MOUSE); // Shift up or down around the center
+		evader.css('top', offset + 'px');
+	}
+
+	function reset(){
+		evader.css('top','0');
+	}
+
+	function showOverlay(){
+		overlay.show();
+	}
+
+	function hideOverlay(){
+		overlay.hide();
+	}
+
+	var yes = $('#yes')
+		.on('click', showOverlay),
+	evader = $('#evader'),
+	evasionContainer =  $('#evasionContainer')
+		.on('mousemove', evasion)
+		.on('mouseout', reset),
+	overlay = $('#overlay')
+		.on('click', hideOverlay);
+</script>
+</body></html>
